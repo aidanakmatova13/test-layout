@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+body{
+    background: #C0DBD9;
+    display: grid;
+    grid-gap: 15px;
+    flex-direction: column;
+    padding: 0 5px;
+}
+.header{
+    background-color:#7faff6;
+    padding: 30px;
+    position: relative;
+}
+.btn{
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    background: #A5C7F9;
+    border-radius: 5px;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+.block-one{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+    counter-reset: test;
+    background-color: #B3F95A;
+}
+.block-one div::before {
+    counter-increment: test;
+    content: counter(test);
+}
+.block-one div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 53px;
+    line-height: 62px;
+    color: #FFFFFF;
+}
+.div1 { grid-area: 1 / 1 / 2 / 3; }
+.div2 { grid-area: 1 / 3 / 2 / 6; }
+.div3 { grid-area: 1 / 6 / 2 / 7; }
+.div4 { grid-area: 2 / 1 / 3 / 6; }
+.div5 { grid-area: 2 / 6 / 3 / 7; }
+
+.block-one div{
+    height: 198px;
+    background: #8AD191;
+}
+.block-two{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+    padding: 30px;
+    background-color: #88B5BF;
+    margin-bottom: 85px;
+}
+.block-two div{
+    width: 255px;
+    height: 199px;
+    background: #0D89B0;
+}
+.footer{
+    height: 100px;
+    background: #7FAFF7;
+}
+.popup{
+    width: 400px;
+    height: 400px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: -999px;
+    transition: .5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-box{
+    position: relative;
+}
+.popup h1{
+    font-size: 53px;
+}
+.btn-close{
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: #FFFFFF;
+    width: 43px;
+    height: 39px;
+    background: #7FAFF6;
+    border-radius: 5px;
+    top: 10px;
+    right: 10px;
+    position: absolute;
+}
+#modal:checked ~.popup{
+    top: 50px;
+}
+#modal{
+    display: none;
+}
